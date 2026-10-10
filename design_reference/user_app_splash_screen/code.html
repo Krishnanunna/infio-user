@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InFio Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#8a19d8",
+                        "secondary-container": "#e5e2e1",
+                        "on-secondary-container": "#656464",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-variant": "#dce2f3",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474646",
+                        "tertiary-fixed-dim": "#ffb958",
+                        "outline": "#7f7386",
+                        "on-primary-fixed": "#2e004e",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary-container": "#ffffff",
+                        "primary-fixed-dim": "#e0b6ff",
+                        "inverse-primary": "#e0b6ff",
+                        "on-primary-fixed-variant": "#6c00ae",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#f2daff",
+                        "surface-bright": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#151c27",
+                        "surface-container": "#e7eefe",
+                        "on-surface": "#151c27",
+                        "primary-container": "#a540f3",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary": "#835400",
+                        "tertiary-container": "#a46a00",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-tertiary-fixed": "#2a1800",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#4d4354",
+                        "surface": "#f9f9ff",
+                        "outline-variant": "#d0c1d7",
+                        "secondary": "#5f5e5e",
+                        "inverse-surface": "#2a313d",
+                        "surface-tint": "#8b1bd9",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#dce2f3",
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "surface-container-high": "#e2e8f8",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#d3daea",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffddb5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-md": "16px",
+                        "unit": "4px",
+                        "grid-gutter": "12px",
+                        "stack-gap-sm": "8px",
+                        "stack-gap-lg": "24px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .loader {
+            border: 3px solid theme('colors.surface-variant');
+            border-top: 3px solid theme('colors.primary-container');
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pulse-gradient {
+            background: radial-gradient(circle at center, rgba(165, 64, 243, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col justify-center items-center relative overflow-hidden font-body-lg">
+<!-- Background Gradient Accent -->
+<div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+<div class="w-[80vw] h-[80vw] max-w-[500px] max-h-[500px] rounded-full pulse-gradient blur-3xl"></div>
+</div>
+<!-- Main Content -->
+<main class="z-10 flex flex-col items-center justify-center flex-grow w-full px-container-margin">
+<!-- Logo Container with Glass Effect -->
+<div class="relative mb-stack-gap-lg">
+<div class="absolute inset-0 bg-white/40 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 transform scale-110"></div>
+<img alt="InFio Search Logo" class="relative z-10 w-48 h-48 object-contain rounded-xl drop-shadow-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1UrG-56jzOHnblj1J9BTr7N4BEYCi4ogMRes2eiCXAaENM9gUg0c2m7ojoDHqYuQM3MK3vg8ciKNRN_pNM4-CXxbix84VfgOGChqeyolOSlCdYJdV7VNbzjJ5mpJvw6m76JukrO5NAipdQD7yN21VCvzjlZ7Obev4VOrsdvjadX2HTaOxz5J99HAgFMWw_YPya-7XBNQ3zMdQwF1ivt7XeYKggQsLApQI_4fRWnPUj85CNUYYv7K9v_4g"/>
+</div>
+</main>
+<!-- Loading Indicator at Bottom -->
+<footer class="z-10 w-full flex flex-col items-center justify-end pb-[10vh] absolute bottom-0 pointer-events-none">
+<div class="loader mb-stack-gap-sm"></div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest opacity-80">Loading...</p>
+</footer>
+<script>
+        // Simple script to redirect after a delay, simulating app loading
+        setTimeout(() => {
+            // console.log("Splash screen done, ready to navigate to main app.");
+        }, 3000);
+    </script>
+</body></html>

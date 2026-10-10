@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compare Quotes - InFio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#e0b6ff",
+                    "secondary-fixed": "#e5e2e1",
+                    "background": "#f9f9ff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#2e004e",
+                    "surface-container-highest": "#dce2f3",
+                    "on-secondary-container": "#656464",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "outline-variant": "#d0c1d7",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed": "#ffddb5",
+                    "surface-container-high": "#e2e8f8",
+                    "on-background": "#151c27",
+                    "on-primary-fixed-variant": "#6c00ae",
+                    "inverse-surface": "#2a313d",
+                    "on-surface": "#151c27",
+                    "surface-container": "#e7eefe",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#e0b6ff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface": "#f9f9ff",
+                    "primary": "#8a19d8",
+                    "on-tertiary-fixed-variant": "#643f00",
+                    "secondary-container": "#e5e2e1",
+                    "tertiary-fixed-dim": "#ffb958",
+                    "primary-container": "#a540f3",
+                    "on-tertiary-container": "#ffffff",
+                    "primary-fixed": "#f2daff",
+                    "on-secondary-fixed-variant": "#474646",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#ffffff",
+                    "surface-dim": "#d3daea",
+                    "on-surface-variant": "#4d4354",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#8b1bd9",
+                    "surface-variant": "#dce2f3",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "tertiary-container": "#a46a00",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#ebf1ff",
+                    "on-tertiary-fixed": "#2a1800",
+                    "secondary": "#5f5e5e",
+                    "outline": "#7f7386",
+                    "tertiary": "#835400",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-gap-md": "16px",
+                    "stack-gap-sm": "8px",
+                    "container-margin": "20px",
+                    "grid-gutter": "12px",
+                    "stack-gap-lg": "24px",
+                    "safe": "env(safe-area-inset-bottom)"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "title-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 4px 24px -4px rgba(0,0,0,0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-lg selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container/80 backdrop-blur-[12px] text-primary font-headline-lg-mobile text-headline-lg-mobile flex justify-between items-center px-container-margin h-16 shadow-sm transition-all duration-300 ease-in-out border-b border-white/20">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full hover:bg-primary/10 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<span class="text-title-md font-headline-lg text-primary dark:text-primary-fixed-dim">InFio</span>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</header>
+<main class="pt-[88px] pb-[40px] px-container-margin flex flex-col gap-stack-gap-lg max-w-2xl mx-auto">
+<header class="flex flex-col gap-stack-gap-sm px-2">
+<div class="inline-flex items-center gap-2 bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-3 py-1.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-[16px]">plumbing</span>
+                Pipe Leak Repair
+            </div>
+<h1 class="font-display-lg text-display-lg text-on-background leading-tight">Compare Quotes</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">3 partners have responded to your request.</p>
+</header>
+<div class="flex flex-col gap-stack-gap-md">
+<article class="glass-card rounded-xl p-5 flex flex-col gap-stack-gap-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+<div class="flex justify-between items-start z-10 relative">
+<div class="flex gap-3 items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant border-2 border-white shadow-sm overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up professional headshot of a friendly male plumber in a clean blue uniform, bright daytime outdoor lighting, sharp focus, modern vibrant style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrUW98eBg-ZLqSFCj5MJCAjR6-PQeYEOGOIhv0y5C7sUHPh5nQHKCKvDYXPTx6CGbwqSDljmfXlHPT69F5QfD5jWteLT2cTS6P-z2HifPSPidPFYKnyl-0LV9Y7UFcEY4Owu-Xe8PKltWsXZn4oEbxCuU2naNPbAQ9lhMcWd4N3O_xXZjIjpMZ_tvxYpxxFkzJxW_4tU8g1v-DWyYFY1qSnG8nzKs5vpDSHVIyG0Lxy4FSlf0WzKOn"/>
+</div>
+<div class="flex flex-col">
+<h2 class="font-title-md text-title-md text-on-surface">AquaFix Pros</h2>
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary-container mt-0.5">
+<span class="material-symbols-outlined text-[14px] fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9 <span class="text-on-surface-variant font-normal ml-1">(128 reviews)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-[10px] px-2 py-0.5 rounded-full uppercase tracking-tighter mb-1">Best Value</div>
+<span class="font-display-lg text-display-lg text-primary leading-none">₹850</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider bg-surface-container-high px-2 py-0.5 rounded">Fixed</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 z-10 relative">
+<div class="bg-white/80 rounded-xl p-4 border border-white shadow-sm">
+<p class="font-body-lg text-body-lg text-on-surface italic leading-relaxed">"Hi there! I can fix this leak permanently using high-grade PVC sealant. I have the parts in my van."</p>
+</div>
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-[20px] text-primary">bolt</span>
+<span class="font-label-md text-label-md text-on-surface">Available <span class="text-primary font-bold">Today, 4:00 PM</span></span>
+</div>
+</div>
+<div class="flex gap-3 mt-2 z-10 relative">
+<button class="flex-1 py-2.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-1.5 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                        Reject
+                    </button>
+<button class="flex-1 py-2.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-1.5 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Call
+                    </button>
+<button class="flex-[1.5] py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 relative overflow-hidden h-12">
+<div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        Accept &amp; Chat
+                    </button>
+</div>
+</article>
+<article class="glass-card rounded-xl p-5 flex flex-col gap-stack-gap-md relative overflow-hidden">
+<div class="flex justify-between items-start z-10 relative">
+<div class="flex gap-3 items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant border-2 border-white shadow-sm overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clean, modern logo for a plumbing company featuring a minimal water drop icon in deep blue, set against a pristine white background, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo-60-fwqP3CE_UcbHpUkodf6KwrljpTC05f7pZgO-2lrC572nYR85LXFUR-IMIr0VbWcZOKHbdcCBri6zQI-o0QIHhEVlHh5VpS8nYj-f0PVbaOPca0_tQ8_g3kqykIHIbsvg4eUkaB_lGR1lsSWtCYA0rD1oH4ApN8qv2UMR_pfoIZC9Vw2-DIhLGXJ6sEar1gjgwjKxjWdfPdnEytReFUvhg1T9-a0NjZXp-tlambPnsY2C6nAn"/>
+</div>
+<div class="flex flex-col">
+<h2 class="font-title-md text-title-md text-on-surface">City Plumbers</h2>
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary-container mt-0.5">
+<span class="material-symbols-outlined text-[14px] fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.6 <span class="text-on-surface-variant font-normal ml-1">(85 reviews)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="font-display-lg text-display-lg text-on-surface leading-none">₹600</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider border border-secondary/30 px-2 py-0.5 rounded">Estimated</span>
+</div>
+</div>
+<div class="bg-white/50 rounded-lg p-3 border border-white/60 z-10 relative">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"We offer a baseline inspection rate. Final price depends on pipe damage severity."</p>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface z-10 relative py-1">
+<span class="material-symbols-outlined text-[18px] text-secondary">schedule</span>
+                    Can start at <span class="text-secondary">6:30 PM Today</span>
+</div>
+<div class="flex gap-3 mt-2 z-10 relative">
+<button class="flex-1 py-2.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-1.5 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                        Reject
+                    </button>
+<button class="flex-[2] py-2.5 rounded-lg border-2 border-primary-container text-primary font-label-md text-label-md hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Call to Negotiate
+                    </button>
+</div>
+</article>
+<article class="glass-card rounded-xl p-5 flex flex-col gap-stack-gap-md relative overflow-hidden">
+<div class="flex justify-between items-start z-10 relative">
+<div class="flex gap-3 items-center">
+<div class="w-12 h-12 rounded-full bg-surface-variant border-2 border-white shadow-sm overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of an experienced older male handyman wearing a grey work shirt, smiling warmly at the camera, soft natural lighting, trustworthy professional portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUfyyLzU56jrivxGSFtNE3Rye358LjeQ-Cu5xJiqfHNHjbA7pgRe6U75vHiOU678dxsBBHsnCnLWsm3igdrNbMeFP08F9kQ5M7bpPGJU5Fsgiy4XppZ-1vt0vUrOpGZDQFXMq8prX9zJ40Lov_5Py93Zo1JRkXwGq4slGgcFLjnLIkBwg6oBIZQ-uu26gWDCqFgOnqvD-g9EKaZmrmzRrKBZ5vxFSuw4gAumAaT8eLpSTH3P8FzZE2"/>
+</div>
+<div class="flex flex-col">
+<h2 class="font-title-md text-title-md text-on-surface">Ramesh Handyman</h2>
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary-container mt-0.5">
+<span class="material-symbols-outlined text-[14px] fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+                                5.0 <span class="text-on-surface-variant font-normal ml-1">(312 reviews)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="bg-primary-fixed text-on-primary-fixed font-label-md text-[10px] px-2 py-0.5 rounded-full uppercase tracking-tighter mb-1">Most Reliable</div>
+<span class="font-display-lg text-display-lg text-primary leading-none">₹950</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider bg-surface-container-high px-2 py-0.5 rounded">Fixed</span>
+</div>
+</div>
+<div class="bg-white/50 rounded-lg p-3 border border-white/60 z-10 relative">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"Premium service with 6-month warranty on the repair. I carry all heavy-duty equipment."</p>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface z-10 relative py-1">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+                    Can start <span class="text-primary font-bold">Tomorrow, 9:00 AM</span>
+</div>
+<div class="flex gap-3 mt-2 z-10 relative">
+<button class="flex-1 py-2.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-1.5 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                        Reject
+                    </button>
+<button class="flex-1 py-2.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-1.5 bg-white/40">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Call
+                    </button>
+<button class="flex-[1.5] py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 relative overflow-hidden h-12">
+<div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        Accept &amp; Chat
+                    </button>
+</div>
+</article>
+</div>
+</main>
+</body></html>

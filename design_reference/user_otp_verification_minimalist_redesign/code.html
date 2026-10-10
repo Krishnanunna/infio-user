@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OTP Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#835400",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-variant": "#dce2f3",
+                        "background": "#f9f9ff",
+                        "on-surface": "#151c27",
+                        "inverse-surface": "#2a313d",
+                        "surface-container-high": "#e2e8f8",
+                        "on-primary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#656464",
+                        "primary-fixed-dim": "#e0b6ff",
+                        "on-background": "#151c27",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#e7eefe",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffddb5",
+                        "tertiary-container": "#a46a00",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-tertiary-fixed": "#2a1800",
+                        "surface-tint": "#8b1bd9",
+                        "secondary-container": "#e5e2e1",
+                        "inverse-primary": "#e0b6ff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#4d4354",
+                        "on-primary-fixed": "#2e004e",
+                        "surface": "#f9f9ff",
+                        "primary": "#8a19d8",
+                        "primary-fixed": "#f2daff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "outline-variant": "#d0c1d7",
+                        "on-primary-fixed-variant": "#6c00ae",
+                        "on-error": "#ffffff",
+                        "outline": "#7f7386",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb958",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "surface-dim": "#d3daea",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#dce2f3",
+                        "primary-container": "#a540f3",
+                        "on-tertiary-fixed-variant": "#643f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-md": "16px",
+                        "container-margin": "20px",
+                        "stack-gap-sm": "8px",
+                        "stack-gap-lg": "24px",
+                        "grid-gutter": "12px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-input {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* Remove arrows from number input */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col relative overflow-hidden font-body-lg text-on-surface bg-gradient-to-b">
+<!-- Decorative Background Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[30%] bg-primary-fixed-dim/40 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] bg-surface-variant/60 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Transactional Header -->
+<header class="flex items-center justify-between px-container-margin h-16 w-full z-10"><button aria-label="Go back" class="absolute left-container-margin w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors z-20"><span class="material-symbols-outlined text-on-surface">arrow_back</span></button><div class="mx-auto mt-8 w-16 h-16 glass-input rounded-2xl flex items-center justify-center shadow-md border border-outline-variant/30"><img alt="InFio Logo" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UrG-56jzOHnblj1J9BTr7N4BEYCi4ogMRes2eiCXAaENM9gUg0c2m7ojoDHqYuQM3MK3vg8ciKNRN_pNM4-CXxbix84VfgOGChqeyolOSlCdYJdV7VNbzjJ5mpJvw6m76JukrO5NAipdQD7yN21VCvzjlZ7Obev4VOrsdvjadX2HTaOxz5J99HAgFMWw_YPya-7XBNQ3zMdQwF1ivt7XeYKggQsLApQI_4fRWnPUj85CNUYYv7K9v_4g"/></div></header>
+<!-- Main Content -->
+<main class="flex-1 px-container-margin pt-stack-gap-md pb-safe flex flex-col z-10 w-full max-w-md mx-auto">
+<div class="mb-stack-gap-lg text-center">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-stack-gap-sm">Verification</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Enter the 4-digit code sent to +91 XXXXX XXXXX</p>
+</div>
+<!-- OTP Input Group -->
+<div class="flex gap-grid-gutter justify-between mb-stack-gap-lg max-w-[280px] mx-auto" id="otp-container">
+<input autofocus="" class="glass-input w-full aspect-square rounded-xl border border-outline-variant text-center font-display-lg text-display-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" maxlength="1" pattern="\d*" type="number"/>
+<input class="glass-input w-full aspect-square rounded-xl border border-outline-variant text-center font-display-lg text-display-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" maxlength="1" pattern="\d*" type="number"/>
+<input class="glass-input w-full aspect-square rounded-xl border border-outline-variant text-center font-display-lg text-display-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" maxlength="1" pattern="\d*" type="number"/>
+<input class="glass-input w-full aspect-square rounded-xl border border-outline-variant text-center font-display-lg text-display-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" maxlength="1" pattern="\d*" type="number"/>
+</div>
+<!-- Verify Button -->
+<button class="w-full py-4 rounded-xl font-bold text-body-lg shadow-lg hover:opacity-90 transition-all active:scale-[0.98] mb-stack-gap-md bg-gradient-to-r from-[#00df9a] to-[#8a19d8] text-white flex items-center justify-center gap-2"><span>Verify</span><span class="material-symbols-outlined">arrow_forward</span></button>
+<!-- Resend Link -->
+<div class="mt-auto text-center font-body-sm text-body-sm text-on-surface-variant">
+            Didn't receive code? 
+            <button class="text-primary font-bold hover:opacity-80 transition-opacity ml-1">Resend OTP</button>
+</div>
+</main>
+<script>
+        // Simple logic to auto-advance OTP inputs
+        const container = document.getElementById('otp-container');
+        const inputs = container.querySelectorAll('input');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                // Ensure only one digit
+                if(input.value.length > 1) {
+                    input.value = input.value.slice(0, 1);
+                }
+                // Move to next input if filled
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                // Move to previous input on backspace if empty
+                if (e.key === 'Backspace' && input.value === '' && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+            
+            // Allow paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text/plain').trim().slice(0, 4);
+                if (/^\d+$/.test(pastedData)) {
+                    pastedData.split('').forEach((char, i) => {
+                        if (inputs[i]) {
+                            inputs[i].value = char;
+                            if (i < inputs.length - 1) inputs[i + 1].focus();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

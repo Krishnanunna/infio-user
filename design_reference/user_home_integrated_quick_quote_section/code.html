@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>InFio Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#835400",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-variant": "#dce2f3",
+                        "background": "#f9f9ff",
+                        "on-surface": "#151c27",
+                        "inverse-surface": "#2a313d",
+                        "surface-container-high": "#e2e8f8",
+                        "on-primary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#656464",
+                        "primary-fixed-dim": "#e0b6ff",
+                        "on-background": "#151c27",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#e7eefe",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffddb5",
+                        "tertiary-container": "#a46a00",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-tertiary-fixed": "#2a1800",
+                        "surface-tint": "#8b1bd9",
+                        "secondary-container": "#e5e2e1",
+                        "inverse-primary": "#e0b6ff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#4d4354",
+                        "on-primary-fixed": "#2e004e",
+                        "surface": "#f9f9ff",
+                        "primary": "#8a19d8",
+                        "primary-fixed": "#f2daff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "outline-variant": "#d0c1d7",
+                        "on-primary-fixed-variant": "#6c00ae",
+                        "on-error": "#ffffff",
+                        "outline": "#7f7386",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb958",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "surface-dim": "#d3daea",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#dce2f3",
+                        "primary-container": "#a540f3",
+                        "on-tertiary-fixed-variant": "#643f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-md": "16px",
+                        "container-margin": "20px",
+                        "stack-gap-sm": "8px",
+                        "stack-gap-lg": "24px",
+                        "grid-gutter": "12px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:hidden pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-white/70 dark:bg-on-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm flex items-center justify-between px-container-margin h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-display-lg text-display-lg text-primary dark:text-primary-fixed font-bold">InFio Search</span>
+</div>
+<button class="scale-95 active:scale-90 transition-transform hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-container-margin py-stack-gap-md space-y-stack-gap-lg">
+<!-- Search Bar -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors shadow-sm font-body-lg text-body-lg text-on-surface placeholder:text-outline" placeholder="Search for AC repair, Plumber..." type="text"/>
+</div>
+<!-- Hero Carousel -->
+<div class="relative w-full">
+<div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-stack-gap-md">
+<!-- Slide 1 -->
+<section class="snap-start shrink-0 w-full relative rounded-2xl overflow-hidden shadow-sm aspect-[21/9]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A bright, modern lifestyle photograph of a professional service worker shaking hands with a happy customer in a well-lit living room. The scene is shot with high-key lighting, emphasizing a clean, trustworthy atmosphere. The color palette incorporates crisp whites and subtle vibrant green accents, aligning with a modern consumer service app aesthetic. The mood is highly positive, professional, and reassuring." src="https://lh3.googleusercontent.com/aida/AEtjO1X37HqLR4o9r22BygYLPfiFpTesZIpOb8MFWZMST4gXWH0gin8Oym1zVCVHJ3IWpXC9dHtSFAnz33_tWyjmP7e8BLY_z9dTGYfoJCk_4fiCWkQS0SPlhqesFx5trCbXCHlpGDpgZ3r7RzSYjoSXLw8CWvWBT_8e45giT5lTDd6wiTBFHE9LKaAZRyySJv8syKeUkMMOWDiD9Zq0dI4zukNEBnPmqWYtEUjvCP2kZMz9mNDjS4XIUEon9Oc"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/90 via-on-surface/40 to-transparent flex flex-col justify-center p-stack-gap-md text-on-primary"><div class="max-w-[60%]"><h2 class="font-display-lg text-display-lg font-bold leading-tight mb-2">Your Home, Happy &amp; Handled</h2><p class="font-body-sm text-body-sm mb-4 opacity-90">Get 3 Quotes in 15 min. Effortless services at your fingertips.</p><button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-title-md text-title-md shadow-lg active:scale-95 transition-all flex items-center gap-2">Request Now <span class="material-symbols-outlined">arrow_forward</span></button></div></div>
+</section>
+<!-- Slide 2 -->
+<section class="snap-start shrink-0 w-full relative rounded-2xl overflow-hidden shadow-sm aspect-[21/9]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Air conditioning unit being repaired by a professional technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrHji8pZX6CW1t4BjrHnn45KVdqVjW1_RvPm2XUTKAS9-nf9d-p_YugkkJ69yvCd4vax6fTwXQmfyZ-rUqOa8qrmI0RDRz1CJ3VoUlYARizzGcCisivpjvoH4B_FhTpBSKIZ69DPIFA9RBKyJznzDkkUHYmzaOHXgDkKz0aEufVQ3FmGfUdj3Julmywe88DgltCr3mI1d_UYbkY4hcYONnmMjBRDmlb4eLoWiKLTU0jG2CkxUkPEVb"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/90 via-primary-container/40 to-transparent flex flex-col justify-center p-stack-gap-md text-on-primary-container"><div class="max-w-[60%]"><h2 class="font-display-lg text-display-lg font-bold leading-tight mb-2">AC Service Special</h2><p class="font-body-sm text-body-sm mb-4 opacity-90">Flat 20% off on all AC servicing and repairs this month.</p><button class="bg-on-primary-container text-primary-container px-6 py-2.5 rounded-full font-title-md text-title-md shadow-lg active:scale-95 transition-all flex items-center gap-2">Book Now <span class="material-symbols-outlined">arrow_forward</span></button></div></div>
+</section>
+<!-- Slide 3 -->
+<section class="snap-start shrink-0 w-full relative rounded-2xl overflow-hidden shadow-sm aspect-[21/9]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Cleaning supplies and equipment ready for deep cleaning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD37ZYAPHED0h8Wq2_9Ec7hyZvL6sddI6TDNJLrHPD_MdW6E4kLe6Bh5bYbKqYxfLVSTk13NuNgFAHqu9KNEuhP34tqVGisp0TedAfw9aRl0eXKLPjOEIBSV2FBvGtMX5eXx8JFceguSZkj4m-nGZZ-hrNduCfMfyoMOlGn_ARQtw9Y4iMNneD-o-KGYHkIJUVDeVzSBJ8LVIigCqtUMmSaavE43ikRXv970mnE6unBR87h56XQPD_r"/>
+<div class="absolute inset-0 bg-gradient-to-r from-tertiary/90 via-tertiary/40 to-transparent flex flex-col justify-center p-stack-gap-md text-on-tertiary"><div class="max-w-[60%]"><h2 class="font-display-lg text-display-lg font-bold leading-tight mb-2">Cleaning Deals</h2><p class="font-body-sm text-body-sm mb-4 opacity-90">Deep cleaning packages starting at just $49.</p><button class="bg-on-tertiary text-tertiary px-6 py-2.5 rounded-full font-title-md text-title-md shadow-lg active:scale-95 transition-all flex items-center gap-2">View Deals <span class="material-symbols-outlined">arrow_forward</span></button></div></div>
+</section>
+</div>
+<!-- Pagination Dots -->
+<div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10 pointer-events-none">
+<div class="w-2 h-2 rounded-full bg-white shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></div>
+</div>
+</div>
+<!-- Category Grid -->
+<section>
+<h3 class="font-title-md text-title-md mb-stack-gap-sm">Explore Services</h3>
+<div class="grid grid-cols-5 gap-y-stack-gap-md gap-x-2">
+<!-- Category Item -->
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="AC Repair" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd_7YpHxMxFWFsJ49a-Mp1qiRP9oIrQ-ykFtWePrBVue-QqxOJBRBBNPuZHTOpGkL4rcT0NlRq-7KOlXm8WROukeJE5P3DH7tvnT0Wsgp5Rm1imwzS3b3aO9bKwkqJ3uSR5DJ23DLUdC4Wj196AaQp6uwyhKsIuvhzeCK7jVfeu01cqQovZQ07poIIdt_mx6A0HapFqHr3XSZ5bsEX-MdaRXmlus_25Crq5g4jINUDldkwsQ7UWulS"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">AC Repair</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Plumber" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAevCRpA-IfA6ZM2QaG9z6IekjwrrCykyGXZ5qEH-h8AEqNNpoumaqcslqQkdlQLUzgRntWIGaKTGLjBx2UpxdHO6c-NxGUdvkh8bR9PrkzPGDs-fc2q-FvNeksWuqMUqz14uB7WrVdUV6r0iaeGXOzsNaGMziEYJovlKQNEqSo8H7UWl3sI6Hz-feqLNfle8Ctcz1M45UwpX0gXl7jD7xvc4j1pA1AAcs-I0hpe2gpmaraTd1FB4B_"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Plumber</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Electrician" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6w9U57krITrHsPNWL6lKCGvYYYqqyTlYj1W1aGsLqIn03QOM2S0kRG9v4Fbh9-o9POFc_LlQa6cAZcpYonhBecgWOWgyRQ_tDxMU4xpp4ql_UrHnKbvOJ63jGwcVGZfMyRGUgMBHllhv65qdJZCIoTAzyPur1Pe0eS7nxeoSS1dImdfBygTjfWu4oztcst9B6mmKe4CEyRxUVUPfGPDacFssVkGgYMayM71Nb678ENTyAMtADwlGf"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Electrician</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Salon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS5nqnOq4M8UIpTLQskC6bMDFZEJBzDrUfyOlPI49jWqX_38ZKopt85UYAoULnFna3iZpesnaYCFG1t198CbmGmNTMavUDH5wJErxLuVq5rt0WV6ugm-8aOD8IQaKeWaFVDiodseyrIbVdiC3k3gizxYaQ0BnJejGWzJdDFyjG5Ob6JGF7h4Y1myxZSDsosccKP_Qr_uPTrCH9PvNl8bH47WVtGtTgQGIZrTZ7N68iP3NbMQ3TANcI"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Salon</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Tutor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDunh77NaSMfgGiX3UNwAeuMCT5sYOfg5e6MGn-oRphSsN1JKkY2VC_ZXlJH9IXzlrVSmRST_vp3WJSnQTC0jGFtzEiqgk82DkXMTd-Izs90jOPj8jNkegQq9noQlCIV49AJCQoT1ENKWUZsu85kDZN4uV-SYXPJ4ZZb9uzQkvg8JBbDR-psi4RyQ2_YEl8zt8QKoGngk4cdKtRHUbbsbrv-s_GqEDsWWobsHoF9fgobopagYL3w1lD"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Tutor</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Painter" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8ttMBo3f4nHdIXPCVuIkMiaoxFjnAjqp14gn_Pghi1AqP9Ne-jBrshhlejF1FaR4nbS_7Mzloypz1ywS2UJhpWYeKLuBoWPC7qL8waSlNCp6YdFWIJS0vHtZ131fcVV70FwdRsCNF0dKjlSV9orVBGUbKi2cE_C_nM0vNYMJKgf3vSik9kYtBJy-H6HOqlWVP1DJBVqdsI7rBjm6Llz2Q7w7xsjdveT7epvSJGqHbJZ7px8xr0vx"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Painter</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Carpenter" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkxI6felS8W-6gN1zeHjr-28CfJp9XLaRmorhn2lTc3q2l5vttTq3PosBwrPij4Az2Kw4z_fu0ME-_pbHynsz2-M0XyMPso-PdC9pPsOl6kCm--U7JKcjlmkLBWINcohv6YFAbDUdEdoFF_EpJ4fzSpTbFiCIJ-zn9Ow-vJSmkpxnOM4C13ZRszCtWV7UPrYr8MUnTqNUl77sidi7UDXeEItxO6K6jshqJjfJwdGmz6ohg0ATtebAC"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Carpenter</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Catering" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV-y_rnLL_jfc4BoZqDKE1QdApSEANilCHGQBpeFPDnyUerGcEGUbOmNWdEBMmVdGxkmGHqQI1p9L25wYreETqLuO37kZB-iapARo5dScEBsW3f6vHnHEmuF3Bx-3vKUNDGCFn4HslKcKCd9dZ_0FroDkP7mNFX-A-Cf_PeDqCDxCO1k6AtAioLmmHJEdDCqiuxZjX_T8AusU2_FCjXMn-FKxmBujpMA9jXn_uWfssKoP-rVOaLS63"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Catering</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Decor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLIAFd2MBWOUbpoMn-JL82wkZavithbUXDPyK2Vbwv6Pt_uATtyzHT9J5BV4bar-PbEazXddErej3OkHZiQv_TSqPnLPIrszeXbt9N0IVWJb1Ambb5T02vMSi_H1e60mTaCWR5o4b51rzjofBwo-_Rkt-xb1Tyv67vJ_73PTelr7k7NIuxIkhzHbQG4_UUOxpPSPBtcIrv4KcZF1OGNiw2Dsjy5H42fBGrORyM6rz_-qpqIURZhd8R"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Decor</span>
+</div>
+<div class="flex flex-col items-center gap-1 tap-highlight-transparent active:scale-95 transition-transform cursor-pointer">
+<div class="w-14 h-14 rounded-full overflow-hidden shadow-sm border border-outline-variant/30 flex-shrink-0">
+<img alt="Photos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeZQvUUJgZwFBQtNDr2YDf1MVGPg2Kz5-S3DrWD7XP0gzR1_H1YP_u1Ut7CA-tJ6nExBPFVtsL_-LapPXbkgb1OsLt446y8FNprYEB9zy3qIkTaPqSsPh8Fm9g246ivzfA5mOTctbP-D04eYOb6dCB0wUuotdrceTmWd0v8F8ofFTK4Kw3HhvWjEWu2QpyDDKXvcfoz7nObC1PrGUJ3S4KbcsuKVaGeofh1R9hlfh6uIGlV0C5hq_V"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center leading-tight">Photos</span>
+</div>
+</div>
+</section><section class="glass-panel rounded-xl p-stack-gap-md flex flex-col gap-4 border border-outline-variant/30 shadow-sm bg-surface-container-low">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[24px]">bolt</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Not sure who to pick?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Let our pros bid for your job. Get 3+ quotes in minutes.</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-title-md text-title-md shadow-md active:scale-95 transition-transform hover:opacity-90 flex items-center justify-center gap-2">
+    Find Best Match
+    <span class="material-symbols-outlined text-[20px]">magic_button</span>
+</button>
+</section>
+<!-- Near You Section -->
+<section>
+<div class="flex justify-between items-end mb-stack-gap-sm">
+<h3 class="font-title-md text-title-md">Near You</h3>
+<span class="font-label-md text-label-md text-primary-container cursor-pointer">See All</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-stack-gap-md pb-4 -mx-container-margin px-container-margin snap-x">
+<!-- Business Card 1 -->
+<div class="snap-start shrink-0 w-64 glass-panel rounded-xl overflow-hidden flex flex-col cursor-pointer active:scale-95 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+<div class="h-32 w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, professional headshot of an HVAC technician in uniform, smiling warmly against a brightly lit, modern residential background. The image has a crisp, high-contrast aesthetic typical of trustworthy service profiles, utilizing a bright white and soft green color scheme to indicate reliability and safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa9krfBKg_7Zog-Riw60rZYKKKEnSxkO_xJoyI-rbjXxFYXI2JulwYtTVLhkmmfTJQzQCrl_hNnmPgw5GqN01uzBdSQfp_eA8ZvQZ3dO5QXFUFw_aEaSj66aq2GWD2F_CF2Dm0Ja5q47EdejHlFJhXiE6Cj0PfzKRPETEz3riNJpq1ym2KPcKInYtrH92VJ_hvkiq30837e_9_18-AalAFEbElyF3HtlC6YBC4BSKSew61Dd2xvu0a"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest/50">
+<h4 class="font-title-md text-title-md text-on-surface truncate">CoolBreeze AC Repair</h4>
+<div class="flex items-center text-on-surface-variant mt-1 gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">3km away</span>
+</div>
+</div>
+</div>
+<!-- Business Card 2 -->
+<div class="snap-start shrink-0 w-64 glass-panel rounded-xl overflow-hidden flex flex-col cursor-pointer active:scale-95 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+<div class="h-32 w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="An inviting, high-quality photo of a modern plumbing service van parked in front of a neat suburban home on a sunny day. The lighting is bright and cheerful. The composition feels professional and corporate-modern, utilizing negative space and a clean color palette emphasizing trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIzKhwxpgTV_N9-6sxlZTyIKK2HbKwqfZKmndHBRKNRL17K5v7aO5lzYAP2c7so5Cyj5jWxFhQRQ1_NNYouiQKp24WnhV0Fg_PC_XR9HTAYXFCscekBt-6dA9s3cljAtv4e3WAJIClMrh3QTbl5GffM3PjG9Hs6NktRNYcfL-9ewa9mhUDZ2xA_U_PmMlLHaFrHisuVoFHKezUawGWDH0FyV-lnu3O5jXfVssE-QjCLWDyhGvtmrmR"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest/50">
+<h4 class="font-title-md text-title-md text-on-surface truncate">ProFlow Plumbing</h4>
+<div class="flex items-center text-on-surface-variant mt-1 gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">4.2km away</span>
+</div>
+</div>
+</div>
+<!-- Business Card 3 -->
+<div class="snap-start shrink-0 w-64 glass-panel rounded-xl overflow-hidden flex flex-col cursor-pointer active:scale-95 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+<div class="h-32 w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A brightly lit, aesthetic photo of professional electrical tools laid out neatly on a clean white surface. The image represents precision and professionalism. The lighting is soft and diffused, creating a glassy, modern look typical of premium service apps, with a distinct corporate modern vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2VDXwcaDKLqAlsOF_wS8rERZQW2T0e_Cj_uGTAxICTg80pI1QdXBbXPqS0JbIkmD7642yz2PJFELPzBNy8NIxRkRpPn96fK8kcKhsaFyEpvM-w_-WsyfCQN23MTpPZu6KUBhyUjzgL6Mk_59-6jFnDuqalty-pXIORcbCTJx96cpnRb4NxV6VCSMXC3iIfySYwUs5kiY-E1j_164Zzd5RBNQaCcWwlQ7WJZ6ibaZ0d5fK6DcoCogf"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.6</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest/50">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Spark Electricals</h4>
+<div class="flex items-center text-on-surface-variant mt-1 gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">5.1km away</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-white/80 dark:bg-on-surface/80 backdrop-blur-2xl border-t border-white/20 shadow-lg flex justify-around items-center h-20 pb-safe px-4 tap-highlight-transparent active:scale-95 transition-all">
+<!-- Active: Home -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 hover:bg-surface-container-highest/50">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<!-- Inactive: Categories -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 rounded-2xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md">Categories</span>
+</button>
+<!-- Inactive: Orders -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 rounded-2xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</button>
+<!-- Inactive: Profile -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 rounded-2xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>InFio Onboarding</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#835400",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-variant": "#dce2f3",
+                    "background": "#f9f9ff",
+                    "on-surface": "#151c27",
+                    "inverse-surface": "#2a313d",
+                    "surface-container-high": "#e2e8f8",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#656464",
+                    "primary-fixed-dim": "#e0b6ff",
+                    "on-background": "#151c27",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "surface-container": "#e7eefe",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffddb5",
+                    "tertiary-container": "#a46a00",
+                    "on-secondary-fixed-variant": "#474646",
+                    "on-tertiary-fixed": "#2a1800",
+                    "surface-tint": "#8b1bd9",
+                    "secondary-container": "#e5e2e1",
+                    "inverse-primary": "#e0b6ff",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-surface-variant": "#4d4354",
+                    "on-primary-fixed": "#2e004e",
+                    "surface": "#f9f9ff",
+                    "primary": "#8a19d8",
+                    "primary-fixed": "#f2daff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffffff",
+                    "outline-variant": "#d0c1d7",
+                    "on-primary-fixed-variant": "#6c00ae",
+                    "on-error": "#ffffff",
+                    "outline": "#7f7386",
+                    "secondary": "#5f5e5e",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb958",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-bright": "#f9f9ff",
+                    "surface-dim": "#d3daea",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "surface-container-highest": "#dce2f3",
+                    "primary-container": "#a540f3",
+                    "on-tertiary-fixed-variant": "#643f00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap-md": "16px",
+                    "container-margin": "20px",
+                    "stack-gap-sm": "8px",
+                    "stack-gap-lg": "24px",
+                    "grid-gutter": "12px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "title-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "title-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .bg-mesh {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(276, 91%, 47%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(276, 91%, 47%, 0.05) 0px, transparent 50%);
+        }
+
+        .input-glass {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .input-glass:focus-within {
+            border-color: #A540F3;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 4px rgba(165, 64, 243, 0.1);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(180deg, #b055f5 0%, #A540F3 100%);
+        }
+        
+        .language-chip {
+            transition: all 0.2s ease;
+        }
+        .language-chip.active {
+            background-color: rgba(165, 64, 243, 0.1);
+            color: #A540F3;
+            border-color: rgba(165, 64, 243, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-mesh min-h-screen text-on-surface font-sans antialiased overflow-hidden flex flex-col items-center justify-center relative">
+<!-- Ambient Decorative Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-64 h-64 rounded-full bg-primary/10 blur-3xl mix-blend-multiply pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-80 h-80 rounded-full bg-primary-container/10 blur-3xl mix-blend-multiply pointer-events-none"></div>
+<main class="w-full max-w-md px-container-margin z-10 flex flex-col h-full sm:h-auto sm:justify-center">
+<!-- Top App Bar / Language Selection -->
+<header class="w-full pt-8 pb-4 flex justify-end items-center">
+<div class="flex rounded-full p-1 bg-white/30 backdrop-blur-md border border-white/40 shadow-sm">
+<button class="language-chip active font-label-md text-[11px] px-3 py-1.5 rounded-full border border-transparent">
+                    English
+                </button>
+<button class="language-chip text-on-surface-variant font-label-md text-[11px] px-3 py-1.5 rounded-full border border-transparent hover:bg-white/40">
+                    తెలుగు
+                </button>
+<button class="language-chip text-on-surface-variant font-label-md text-[11px] px-3 py-1.5 rounded-full border border-transparent hover:bg-white/40">
+                    हिंदी
+                </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<section class="flex-grow flex flex-col justify-center mt-stack-gap-lg gap-8">
+<div class="flex justify-center">
+<img alt="InFio SEARCH Logo" class="h-40 w-auto object-contain drop-shadow-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1UrG-56jzOHnblj1J9BTr7N4BEYCi4ogMRes2eiCXAaENM9gUg0c2m7ojoDHqYuQM3MK3vg8ciKNRN_pNM4-CXxbix84VfgOGChqeyolOSlCdYJdV7VNbzjJ5mpJvw6m76JukrO5NAipdQD7yN21VCvzjlZ7Obev4VOrsdvjadX2HTaOxz5J99HAgFMWw_YPya-7XBNQ3zMdQwF1ivt7XeYKggQsLApQI_4fRWnPUj85CNUYYv7K9v_4g"/>
+</div>
+<form class="flex flex-col gap-stack-gap-lg glass-panel p-8 rounded-3xl shadow-lg border-white/50">
+<!-- Input Group -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="mobile">
+                        Mobile Number
+                    </label>
+<div class="input-glass rounded-xl flex items-center px-4 h-14 overflow-hidden relative">
+<span class="font-body-lg text-body-lg text-on-surface-variant mr-3 border-r border-outline-variant/30 pr-3">+91</span>
+<input class="bg-transparent border-none outline-none w-full h-full font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/40 focus:ring-0 p-0" id="mobile" maxlength="10" placeholder="Enter 10 digit number" type="tel"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="btn-gradient w-full h-14 rounded-xl flex items-center justify-center gap-2 text-white font-title-md text-title-md shadow-[0_8px_30px_rgba(165,64,243,0.2)] hover:opacity-90 active:scale-[0.98] transition-all" style="background: linear-gradient(135deg, #a540f3 0%, #22c55e 100%);" type="button">
+                    Send OTP
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</form>
+<!-- Secondary Action -->
+<div class="mt-4 text-center">
+<button class="font-body-sm text-body-sm text-primary hover:text-primary-container transition-colors underline decoration-primary/30 underline-offset-4">
+                    Skip for now
+                </button>
+</div>
+</section>
+</main>
+<script>
+        // Simple language toggle interaction for demo purposes
+        document.querySelectorAll('.language-chip').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.language-chip').forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('text-on-surface-variant');
+                });
+                e.target.classList.add('active');
+                e.target.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

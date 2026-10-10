@@ -1,0 +1,327 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>InFio Search - AC Repair</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "surface-tint": "#8b1bd9",
+                        "tertiary": "#835400",
+                        "on-surface-variant": "#4d4354",
+                        "on-tertiary-fixed": "#2a1800",
+                        "primary-container": "#a540f3",
+                        "tertiary-fixed": "#ffddb5",
+                        "on-primary-fixed-variant": "#6c00ae",
+                        "primary-fixed-dim": "#e0b6ff",
+                        "tertiary-fixed-dim": "#ffb958",
+                        "primary-fixed": "#f2daff",
+                        "on-tertiary-container": "#ffffff",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-dim": "#d3daea",
+                        "primary": "#8a19d8",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "on-background": "#151c27",
+                        "outline-variant": "#d0c1d7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#151c27",
+                        "inverse-on-surface": "#ebf1ff",
+                        "inverse-surface": "#2a313d",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "outline": "#7f7386",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5f5e5e",
+                        "inverse-primary": "#e0b6ff",
+                        "surface-container-high": "#e2e8f8",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary-fixed": "#2e004e",
+                        "secondary-container": "#e5e2e1",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "surface": "#f9f9ff",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#656464",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "tertiary-container": "#a46a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-lg": "24px",
+                        "unit": "4px",
+                        "stack-gap-sm": "8px",
+                        "stack-gap-md": "16px",
+                        "grid-gutter": "12px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(280,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm min-h-screen flex flex-col pb-24 relative overflow-x-hidden">
+<!-- TopAppBar JSON Component -->
+<header class="fixed docked full-width top-0 bg-white/70 dark:bg-on-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm flex items-center justify-between px-container-margin h-16 w-full z-50">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-display-lg text-display-lg text-primary dark:text-primary-fixed">InFio Search</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-20 px-container-margin w-full max-w-3xl mx-auto">
+<!-- Search Context & Tabs -->
+<div class="mb-stack-gap-md z-40 sticky top-16 pt-unit bg-background/90 backdrop-blur-md pb-unit">
+<div class="flex items-center gap-unit mb-stack-gap-sm">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 pl-10 pr-4 font-body-sm text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" readonly="" type="text" value="AC Repair">
+</div>
+<button class="glass-panel p-2 rounded-full text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Segmented Control (Tabs) -->
+<div class="flex p-1 bg-surface-container-high rounded-lg mb-stack-gap-sm">
+<button class="flex-1 py-1.5 rounded-md bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm transition-all text-center">Search Results</button>
+
+</div>
+<!-- Filters (Chips) -->
+<div class="flex gap-unit overflow-x-auto hide-scrollbar pb-1 -mx-container-margin px-container-margin">
+<button class="glass-panel px-3 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap flex items-center gap-1 border-primary-container text-primary-container bg-primary-fixed/20">
+<span class="material-symbols-outlined text-[16px]">verified</span> Verified
+                </button>
+<button class="glass-panel px-3 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap text-on-surface-variant">
+                    Rating 4.0+
+                </button>
+<button class="glass-panel px-3 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap text-on-surface-variant flex items-center gap-1">
+                    Price <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="glass-panel px-3 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap text-on-surface-variant flex items-center gap-1">
+                    Distance <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Listing Grid/List -->
+<div class="flex flex-col gap-stack-gap-md pb-stack-gap-lg">
+<!-- Card 1 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col gap-3">
+<div class="flex gap-3">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="A professional HVAC technician in a clean uniform working on an outdoor air conditioning unit. High contrast, sharp focus, modern residential setting with bright daylight casting soft shadows. The image uses a clean, trustworthy color palette with crisp whites and subtle blues to convey professionalism in the home services industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCN650YOG3uhYdfGBYsaCfkdKyFJR6OgPAcQXTzwa4ZOboCeOnx0mXXhyY68vOlozyGPDqs5fDslPS5BpArEqW8FN3pU8ow4VuWEmjpHcRVvlCrQ6x3d2um2eNP4lxiVq4W_qnlcTpoFSmZ220c2QDw-203JEivuUHUrhj4XAUncucUp3dIVbb4mrbH8UaQIu2OaNCIk2L-NH3BOLwwPn3H06DJ08_zwy_CSDO5vzaH1MYqRLIBBtx">
+<div class="absolute top-1 left-1 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px] text-yellow-500" data-weight="fill">star</span> 4.9
+                        </div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface line-clamp-1">CoolBreeze AC Experts</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">bookmark_border</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Residential &amp; Commercial Cooling</p>
+</div>
+<div class="flex flex-wrap gap-x-3 gap-y-1 mt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">work_history</span> 8 Yrs Exp.
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">near_me</span> 2.4 mi
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">payments</span> From $49
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-1">
+<button class="flex-1 bg-primary-container text-white py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:brightness-110 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">call</span> Call
+                    </button>
+<button class="flex-1 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-[#25D366]/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-4 glass-panel border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md flex items-center justify-center hover:bg-surface-variant active:scale-95 transition-all">
+                        View
+                    </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col gap-3">
+<div class="flex gap-3">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="A modern, clean delivery or service van parked in a sunny suburban neighborhood. The van is white with sleek abstract graphics. The scene conveys reliability and fast response time. Bright, high-key lighting, clear blue sky, modern architectural backdrop reflecting a premium service aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwz-Jisp8ODxKl_giv4-o0NH5rE2dh3wgneEM1J9kE0xhwQNB3JvI03W_mrzZm43lsFB044CMdzk9_60N8Ss6mYlq22gHfcXgj35Xes2mrD6HfL_MduBsOxxWxjw7UueuZvi45xbwCbc_Onr0j-g3t0we6VZTHl3m9X3dzUEOYtDcV-88-rHVbzI9mh8AKTh8c3cQbLyr9Njnmm-FJLt0mVKg-T2HftZX6RNysYelK65aiDZ4S8cGo">
+<div class="absolute top-1 left-1 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px] text-yellow-500" data-weight="fill">star</span> 4.7
+                        </div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface line-clamp-1">Arctic Air Solutions</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">bookmark_border</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Emergency Repair Services</p>
+</div>
+<div class="flex flex-wrap gap-x-3 gap-y-1 mt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">work_history</span> 12 Yrs Exp.
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">near_me</span> 3.8 mi
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">payments</span> From $65
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-1">
+<button class="flex-1 bg-primary-container text-white py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:brightness-110 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">call</span> Call
+                    </button>
+<button class="flex-1 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-[#25D366]/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-4 glass-panel border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md flex items-center justify-center hover:bg-surface-variant active:scale-95 transition-all">
+                        View
+                    </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col gap-3 opacity-90">
+<div class="flex gap-3">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-surface-variant relative">
+<div class="absolute inset-0 flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined text-4xl">hvac</span>
+</div>
+<img class="w-full h-full object-cover" data-alt="Close up of high quality HVAC tools, gauges, and a digital multimeter laid out neatly on a clean concrete surface. The lighting is bright and even, casting soft shadows. The visual style is crisp, highly detailed, and technical, emphasizing precision, reliability, and professional modern service standards in a light-mode context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7VpRWvk3easrbgA_ZO0P3JMUIUqKeOuziT1v2RvzkuCdj3nTefgSfnYk2ugDhy9S5ENrLp2r5cdtIo8xl7bJ6xxABvIapi7gezyCDqLW_1_LN1G64n181GXxX7yriB1KE4VgJyTUGwHWChJy8VLGAuZRuomZqGTDCIcRMlRGXZwlVjJSB_MWminNyUojUVDH0kVake608X3ZhEGc3_4RFhwrKF95sduhw05occenJJhOc1iED-0_n">
+<div class="absolute top-1 left-1 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px] text-yellow-500" data-weight="fill">star</span> 4.5
+                        </div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface line-clamp-1">Rapid Frost HVAC</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">bookmark_border</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Maintenance &amp; Install</p>
+</div>
+<div class="flex flex-wrap gap-x-3 gap-y-1 mt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">work_history</span> 3 Yrs Exp.
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">near_me</span> 5.1 mi
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">payments</span> From $45
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-1">
+<button class="flex-1 bg-primary-container text-white py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:brightness-110 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">call</span> Call
+                    </button>
+<button class="flex-1 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-[#25D366]/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-4 glass-panel border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md flex items-center justify-center hover:bg-surface-variant active:scale-95 transition-all">
+                        View
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar JSON Component -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-white/80 dark:bg-on-surface/80 backdrop-blur-2xl border-t border-white/20 shadow-lg flex justify-around items-center h-20 pb-safe px-4 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all w-16 h-14 rounded-xl">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" data-weight="fill">grid_view</span>
+<span class="font-label-md text-label-md font-bold">Categories</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all w-16 h-14 rounded-xl">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all w-16 h-14 rounded-xl">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+
+
+</body></html>

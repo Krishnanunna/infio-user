@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InFio User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill-1 {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tap-highlight-transparent {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        
+        /* Glass effect utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-panel {
+            background: rgba(21, 28, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Subtle shadow for extreme focus */
+        .shadow-focus {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#dce2f3",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#474646",
+                      "on-tertiary-container": "#ffffff",
+                      "on-tertiary-fixed-variant": "#643f00",
+                      "surface-container-highest": "#dce2f3",
+                      "inverse-primary": "#e0b6ff",
+                      "primary-fixed-dim": "#e0b6ff",
+                      "inverse-on-surface": "#ebf1ff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#a540f3",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-surface": "#151c27",
+                      "on-tertiary-fixed": "#2a1800",
+                      "secondary-container": "#e5e2e1",
+                      "tertiary": "#835400",
+                      "inverse-surface": "#2a313d",
+                      "surface-container-high": "#e2e8f8",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-primary-container": "#ffffff",
+                      "outline-variant": "#d0c1d7",
+                      "primary": "#8a19d8",
+                      "surface-dim": "#d3daea",
+                      "outline": "#7f7386",
+                      "surface-container-low": "#f0f3ff",
+                      "surface": "#f9f9ff",
+                      "surface-container": "#e7eefe",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#8b1bd9",
+                      "tertiary-fixed-dim": "#ffb958",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#656464",
+                      "on-primary-fixed": "#2e004e",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "secondary": "#5f5e5e",
+                      "primary-fixed": "#f2daff",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#f9f9ff",
+                      "background": "#f9f9ff",
+                      "on-surface-variant": "#4d4354",
+                      "tertiary-container": "#a46a00",
+                      "on-primary-fixed-variant": "#6c00ae",
+                      "on-background": "#151c27",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffddb5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "grid-gutter": "12px",
+                      "stack-gap-lg": "24px",
+                      "unit": "4px",
+                      "stack-gap-md": "16px",
+                      "stack-gap-sm": "8px",
+                      "container-margin": "20px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen flex flex-col relative pb-32">
+<!-- Ambient Background Gradient -->
+<div class="fixed inset-0 z-[-1] bg-gradient-to-br from-primary-fixed/30 via-surface to-surface-variant/40 pointer-events-none"></div>
+<!-- TopAppBar -->
+<header class="bg-white/70 dark:bg-on-surface/70 backdrop-blur-xl docked full-width top-0 border-b border-white/20 shadow-sm flex items-center justify-between px-container-margin h-16 w-full z-50 sticky">
+<button class="scale-95 active:scale-90 transition-transform text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary dark:text-primary-fixed">Profile</h1>
+<button class="scale-95 active:scale-90 transition-transform text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="flex-1 px-container-margin py-stack-gap-lg flex flex-col gap-stack-gap-lg max-w-3xl mx-auto w-full">
+<!-- User Identity Section -->
+<section class="glass-panel rounded-xl p-stack-gap-md flex items-center gap-stack-gap-md">
+<div class="w-20 h-20 rounded-full bg-primary-container overflow-hidden shrink-0 relative shadow-focus">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality profile picture of a young professional smiling softly in a well-lit, modern indoor setting. Soft, natural sunlight highlights their features. The aesthetic is bright, clean, and friendly, matching a reliable user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANCKSoxptjOTUNQW4Eu6emu5jSHVjcjCthtryG-wpViDCU6Nj0FTUZRnkBc8TMGvYEVQZr5yKkIKwCnTTXYwJa2VzKfL_rTaNcO_-oT8EEdCBXPzGYuVUvH608RsIBiyHMiMmQW7uittyOm4Ym1LF3I7UJut46dqZu4G_urwmrEFYhLM6cM5zCjx8XQIW5LXPplWXdz3FtJrsyq1h1LKfomA1s6PKcBcboXMONB6VqtqDrUJidT2_5"/>
+<button class="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow-sm border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex-1">
+<h2 class="font-title-md text-title-md text-on-surface mb-1">Jane Doe</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">+91 98765 43210</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">jane.doe@example.com</p>
+</div>
+<button class="bg-primary/10 text-primary px-3 py-1.5 rounded-lg font-label-md text-label-md border border-primary/20 hover:bg-primary/20 transition-colors">
+                Edit Profile
+            </button>
+</section>
+<!-- Referral Banner -->
+<section class="rounded-xl overflow-hidden shadow-focus relative bg-gradient-to-r from-primary to-primary-container text-on-primary p-stack-gap-md flex flex-col gap-stack-gap-sm items-start">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-black/10 rounded-full blur-lg translate-y-1/2 -translate-x-1/4"></div>
+<div class="flex items-center gap-2 z-10">
+<span class="material-symbols-outlined icon-fill-1 text-tertiary-fixed" data-icon="redeem">redeem</span>
+<h3 class="font-title-md text-title-md">Invite &amp; Earn</h3>
+</div>
+<p class="font-body-lg text-body-lg font-semibold z-10 max-w-[80%]">
+                Invite a neighbor, earn ₹100 service wallet cash!
+            </p>
+<div class="w-full bg-white/20 backdrop-blur-sm rounded-lg p-3 mt-2 border border-white/30 flex items-center justify-between z-10">
+<div>
+<p class="font-label-md text-label-md text-white/80 uppercase">Your Code</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile tracking-wider">JANE100</p>
+</div>
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="share">share</span>
+                    Share via WhatsApp
+                </button>
+</div>
+</section>
+<!-- Navigation Options Grid (Bento style) -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-grid-gutter">
+<!-- Saved Businesses -->
+<button class="glass-panel p-stack-gap-md rounded-xl flex flex-col items-center justify-center gap-stack-gap-sm hover:bg-surface-variant/50 transition-colors active:scale-95 col-span-1">
+<div class="w-12 h-12 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-fill-1" data-icon="favorite">favorite</span>
+</div>
+<span class="font-title-md text-title-md text-center">Saved Businesses</span>
+</button>
+<!-- Review History -->
+<button class="glass-panel p-stack-gap-md rounded-xl flex flex-col items-center justify-center gap-stack-gap-sm hover:bg-surface-variant/50 transition-colors active:scale-95 col-span-1">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/50 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined" data-icon="star_rate">star_rate</span>
+</div>
+<span class="font-title-md text-title-md text-center">Review History</span>
+</button>
+<!-- Language Settings -->
+<button class="glass-panel p-stack-gap-md rounded-xl flex flex-col items-center justify-center gap-stack-gap-sm hover:bg-surface-variant/50 transition-colors active:scale-95 col-span-1 md:col-span-2 md:flex-row md:justify-start">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim/30 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-title-md text-title-md">Language</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">English (US)</span>
+</div>
+</button>
+<!-- Support -->
+<button class="glass-panel p-stack-gap-md rounded-xl flex flex-col items-center justify-center gap-stack-gap-sm hover:bg-surface-variant/50 transition-colors active:scale-95 col-span-2 md:col-span-4 md:flex-row md:justify-start">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-title-md text-title-md">Help &amp; Support</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">FAQs, Contact us, Terms of Service</span>
+</div>
+</button>
+</section>
+<button class="mt-stack-gap-md glass-panel p-stack-gap-sm rounded-lg flex items-center justify-center gap-2 text-error font-title-md text-title-md border border-error/20 hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+            Log Out
+        </button>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white/80 dark:bg-on-surface/80 backdrop-blur-2xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/20 shadow-lg flex justify-around items-center h-20 pb-safe px-4 md:hidden">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</button>
+<!-- Categories -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md mt-1">Categories</span>
+</button>
+<!-- Orders -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest/50 tap-highlight-transparent active:scale-95 transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md mt-1">Orders</span>
+</button>
+<!-- Profile (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined icon-fill-1" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</button>
+</nav>
+<!-- Desktop Sidebar Placeholder (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low border-r border-outline-variant/30 p-stack-gap-md gap-stack-gap-sm z-40">
+<button class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-title-md text-title-md">Home</span>
+</button>
+<button class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-title-md text-title-md">Categories</span>
+</button>
+<button class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-title-md text-title-md">Orders</span>
+</button>
+<button class="flex items-center gap-3 p-3 rounded-lg bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined icon-fill-1" data-icon="person">person</span>
+<span class="font-title-md text-title-md">Profile</span>
+</button>
+</aside>
+</body></html>
